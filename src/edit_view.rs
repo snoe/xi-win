@@ -22,15 +22,15 @@ use std::mem;
 
 use serde_json::Value;
 
-use winapi::um::winuser::*;
+use druid_shell::window::*;
 
-use direct2d::brush::SolidColorBrush;
-use direct2d::math::*;
-use direct2d::RenderTarget;
-use directwrite;
-use directwrite::TextFormat;
+use piet::brush::SolidColorBrush;
+use piet::math::*;
+use piet::RenderTarget;
+use piet::write;
+use piet::write::TextFormat;
 
-use druid_win_shell::window::{M_ALT, M_CTRL, M_SHIFT, MouseButton};
+use druid_shell::window::{M_ALT, M_CTRL, M_SHIFT, MouseButton};
 
 use druid::Ui;
 use druid::widget::Widget;
@@ -67,7 +67,7 @@ type Params = Value;
 pub struct EditView {
     view_id: Option<String>,
     line_cache: LineCache,
-    dwrite_factory: directwrite::Factory,
+    dwrite_factory: piet::write::Factory,
     resources: Option<Resources>,
     scroll_offset: f32,
     size: (f32, f32),  // in px units
@@ -225,7 +225,7 @@ impl EditView {
         EditView {
             view_id: Default::default(),
             line_cache: LineCache::new(),
-            dwrite_factory: directwrite::Factory::new().unwrap(),
+            dwrite_factory: piet::write::Factory::new().unwrap(),
             resources: None,
             scroll_offset: 0.0,
             size: (0.0, 0.0),

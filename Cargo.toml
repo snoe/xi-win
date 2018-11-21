@@ -6,20 +6,20 @@ authors = ["Raph Levien <raph@google.com>"]
 description = "Windows front-end for xi editor."
 
 [dependencies]
-directwrite = "0.1.2"
-direct2d = "0.2.0"
 
 xi-core-lib = { git = "https://github.com/xi-editor/xi-editor" }
 xi-rpc = { git = "https://github.com/xi-editor/xi-editor" }
 serde = "1.0"
 serde_json = "1.0"
 
-[dependencies.druid-win-shell]
-git = "https://github.com/xi-editor/druid"
+[dependencies.piet]
+path = "../druid/piet"
+#git = "https://github.com/xi-editor/druid"
+
+[dependencies.druid-shell]
+path = "../druid/druid-shell"
+#git = "https://github.com/xi-editor/druid"
 
 [dependencies.druid]
-git = "https://github.com/xi-editor/druid"
-
-[dependencies.winapi]
-version = "0.3.6"
-features = ["d2d1_1", "dwrite", "winbase", "libloaderapi", "errhandlingapi", "winuser", "shellscalingapi", "shobjidl", "combaseapi", "synchapi"]
+path = "../druid"
+#git = "https://github.com/xi-editor/druid"

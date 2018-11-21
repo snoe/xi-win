@@ -14,12 +14,12 @@
 
 //! A line of styled text, as much layout information precalculated as possible.
 
-use direct2d::RenderTarget;
-use direct2d::brush::SolidColorBrush;
-use directwrite;
-use directwrite::{TextFormat, TextLayout};
+use piet::RenderTarget;
+use piet::brush::SolidColorBrush;
+use piet::write;
+use piet::write::{TextFormat, TextLayout};
 
-use druid_win_shell::util::default_text_options;
+use druid_shell::util::default_text_options;
 
 use linecache::{Line, StyleSpan};
 
@@ -35,7 +35,7 @@ pub struct TextLine {
 }
 
 impl TextLine {
-    pub fn create_from_line(line: &Line, factory: &directwrite::Factory, format: &TextFormat)
+    pub fn create_from_line(line: &Line, factory: &piet::write::Factory, format: &TextFormat)
         -> TextLine
     {
         let text = line.text();

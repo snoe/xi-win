@@ -21,10 +21,6 @@
 // up a file to log stdout and SetStdHandle.
 #![windows_subsystem = "windows"]
 
-extern crate winapi;
-extern crate direct2d;
-extern crate directwrite;
-
 extern crate serde;
 #[macro_use]
 extern crate serde_json;
@@ -32,8 +28,9 @@ extern crate serde_json;
 extern crate xi_core_lib;
 extern crate xi_rpc;
 #[macro_use]
-extern crate druid_win_shell;
+extern crate druid_shell;
 extern crate druid;
+extern crate piet;
 
 mod edit_view;
 mod linecache;
@@ -52,8 +49,8 @@ use menus::MenuEntries;
 use rpc::{Core, Handler};
 use xi_thread::start_xi_thread;
 
-use druid_win_shell::win_main::{self};
-use druid_win_shell::window::{Cursor, IdleHandle, WindowBuilder};
+use druid_shell::win_main::{self};
+use druid_shell::window::{Cursor, IdleHandle, WindowBuilder};
 
 use druid::{UiMain, UiState};
 use druid::Id;
@@ -338,7 +335,7 @@ fn build_app(state: &mut UiState) {
 }
 
 fn main() {
-    druid_win_shell::init();
+    druid_shell::init();
 
     let (xi_peer, rx) = start_xi_thread();
 

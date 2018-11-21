@@ -14,11 +14,10 @@
 
 //! Configuration and runtime for the main window's menus.
 
-use winapi::shared::minwindef::WORD;
-use winapi::um::winuser::*;
+use druid_shell::window::*;
 
-use druid_win_shell::menu::Menu;
-use druid_win_shell::win_main::RunLoop;
+use druid_shell::menu::Menu;
+use druid_shell::win_main::RunLoop;
 
 #[repr(u32)]
 pub enum MenuEntries {
